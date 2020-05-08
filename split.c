@@ -90,12 +90,22 @@ int main(int argc,char **argv)
 		if(strcmp(argv[1],"--help")==0) help();
 		else if(strcmp(argv[1],"--versi")==0) versi();
 		else if(strcmp(argv[1],"-l")==0){
-			if(argv[2][0] >= '0' && argv[2][0] <= '9' && line_limit==1000){
-				line_limit=atoi(argv[2]);
-			}else
-			{
-				printf(2,"%s bukan parameter yang valid\n",argv[2]);
-				exit();
+			if(line_limit==1000){
+				int flag=1,j;
+				// printf(1,"%s",argv[2]);
+				for(j=0;j<strlen(argv[2]);j++){
+					if(argv[2][j] < '0' || argv[2][j] > '9' ){
+						flag=0;
+						// printf(1,"ciluk ba\n");
+					}
+				}
+				if(!flag){
+					printf(2,"%s bukan parameter yang valid\n",argv[2]);
+					exit();
+				}
+				else{
+					line_limit=atoi(argv[2]);
+				}
 			}
 			strcpy(output_name, argv[3]);
 			
