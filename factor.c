@@ -16,8 +16,6 @@ void opsi(char *arg){
 		flag=2;
 	   }
 	    
-	    
-	
 	    if(flag==1){
 		printf(1,"factor : Perintah ini digunakan untuk menghasilkan faktor dari sebuah integer\n");
 	    printf(1,"factor [NUMBER]\n");
@@ -32,7 +30,7 @@ void opsi(char *arg){
 	        exit();
 	    }
 	    else if(flag==0){
-	    printf(1,"factor: read error\n",arg);
+	    printf(1,"factor: number tidak valid\n",arg);
 	    exit();
 	    }	
 }
